@@ -2,6 +2,191 @@
   box-sizing: border-box;
 }
 
+body {
+  margin: 0;
+  background: lightblue;
+}
+
+.container {
+  margin: 3em auto;
+  background: white;
+  width: 50%;
+  max-width: 500px;
+  min-width: 400px;
+}
+
+/* -------------------- HEADER ------------------------ */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1em 0.5em;
+}
+
+.icon-container {
+  width: 10%;
+  margin: 0.5em;
+  padding: .5em;
+}
+
+.chat-icon,
+.profile-icon {
+  width: 100%;
+}
+
+.icon-container:hover {
+  box-shadow: 0px 5px 20px #6f837d;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.paw-icon-container {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(270deg, #fa695a 0%, #f83375 100%);
+  border-radius: 30px;
+  border: none;
+}
+
+.paw-icon-container:hover {
+  box-shadow: 0px 5px 20px #e01c0e;
+  cursor: pointer;
+}
+
+.paw-icon {
+  width: 30%;
+  padding: .8em 0;
+}
+
+/* ---------------- MAIN CONTENT ------------------------- */
+
+.img-container {
+  width: 98%;
+  margin: 0 auto;
+  position: relative;
+  color: #fff;
+  font-size: 1.3rem;
+}
+
+.dog-img {
+  width: 100%;
+}
+
+.name-age,
+.bio {
+  text-shadow: 1px 1px 1px black;
+  background: rgba(12, 12, 12, 0.2);
+  padding: 0.2em;
+}
+
+.name-age {
+  position: absolute;
+  bottom: 50px;
+  left: 10px;
+  font-weight: bold;
+  font-size: 1.75rem;
+}
+
+.bio {
+  position: absolute;
+  bottom: 15px;
+  left: 10px;
+}
+
+.like-image,
+.nope-image {
+  box-sizing: border-box;
+  position: absolute;
+  left: 4%;
+  top: 8%;
+  width: 42%;
+  border-radius: 15px;
+  transform: rotate(-30deg);
+}
+
+.none {
+  display: none;
+}
+
+/* ---------------- FOOTER --------------------*/
+
+footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+footer > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15%;
+  margin: 1em 0.75em;
+  padding: 1em;
+  object-fit: cover;
+  box-shadow: 0px 10px 20px #6f837d;
+  border-radius: 50%;
+}
+
+footer > div > img {
+  width: 100%;
+}
+
+.like-icon-container:hover {
+  cursor: pointer;
+  background: #dbfff4;
+}
+
+.nope-icon-container:hover {
+  cursor: pointer;
+  background: #ffe7ef;
+}
+
+/* ---------------------LIKED LIST ----------------------- */
+
 h1 {
-  font-size: 4rem;
+  width: 100%;
+  text-align: center;
+}
+
+.liked-list {
+  width: 98%;
+}
+
+.liked-profile {
+  display: flex;
+  align-items: center;
+  margin-top: 1em;
+}
+
+.liked-image-container {
+  width: 20%;
+}
+
+.liked-dog-image {
+  width: 100%;
+  height: 60%;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-left: 1em;
+  aspect-ratio: 1;
+}
+
+.liked-text {
+ margin-left: 2em;
+ font-size: 1.2rem;
+}
+
+.liked-name-age {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.no-likes {
+  width: 95%;
+  margin-left: .65em;
 }

@@ -1,8 +1,10 @@
-import React from "react"
+import React from "react";
+import Header from "../components/Header";
 
 export default function App() {
-
   return (
-    <h1>Blank Page</h1>
-  )
+    <div className="container">
+      <Header />
+    </div>
+  );
 }
