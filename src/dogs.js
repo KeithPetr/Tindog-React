@@ -4,12 +4,12 @@ export class Dog {
     }
   
     getDogHtml() {
-      const { name, avatar, age, bio, hasBeenSwiped, hasBeenLiked } = this;
+      const { name, avatar, age, bio } = this;
       return `
           <div class="img-container">
               <img class="like-image none" id="like-image" src="images/like-image.png"/>
               <img class="nope-image none" id="nope-image" src="images/nope-image.png"/>
-            <img class="dog-img" src="${avatar}" />
+            <img class="dog-img" src="${avatar}" alt="current dog image" />
             <p class="name-age">${name}, ${age}</p>
             <p class="bio">${bio}</p>
           </div>

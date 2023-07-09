@@ -1,7 +1,11 @@
+import Rex from "../images/dog-rex.png";
+import Bella from "../images/dog-bella.jpg"
+import Teddy from "../images/dog-teddy.jpg"
+
 export const dogs = [
     {
       name: "Rex",
-      avatar: "images/dog-rex.png",
+      avatar: Rex,
       age: 25,
       bio: "Art. Literature. Natural wine. Yoga.",
       hasBeenSwiped: false,
@@ -9,7 +13,7 @@ export const dogs = [
     },
     {
       name: "Bella",
-      avatar: "images/dog-bella.jpg",
+      avatar: Bella,
       age: 43,
       bio: "Life is a garden. Dig it!",
       hasBeenSwiped: false,
@@ -17,7 +21,7 @@ export const dogs = [
     },
     {
       name: "Teddy",
-      avatar: "images/dog-teddy.jpg",
+      avatar: Teddy,
       age: 30,
       bio: "I'd rather be at the beach!",
       hasBeenSwiped: false,

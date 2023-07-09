@@ -1,4 +1,3 @@
-import React from "react";
 import ProfileIcon from "../images/profile-icon.png"
 import PawIcon from "../images/paw-icon.png"
 import ChatIcon from "../images/chat-icon.png"
