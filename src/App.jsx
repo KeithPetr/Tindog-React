@@ -16,7 +16,9 @@ export default function App() {
     if (currentDog.hasBeenSwiped) {
       const nextDogIndex = currentDogIndex + 1;
       if (nextDogIndex < dogs.length) {
-        setCurrentDogIndex(nextDogIndex);
+        setTimeout(() => {
+          setCurrentDogIndex(nextDogIndex);
+        }, 1500)
       }
     }
   }, [currentDog]);
