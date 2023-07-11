@@ -3,15 +3,19 @@ import NopeIcon from "../images/nope-icon.png";
 import LikeIcon from "../images/like-icon.png";
 
 export default function Footer({ setCurrentDog }) {
-  function swiped() {
-    setCurrentDog(prevData => ({ ...prevData, hasBeenSwiped: true }));
+  function handleLike() {
+    setCurrentDog(prevData => ({ ...prevData, hasBeenSwiped: true, hasBeenLiked: true }));
+  }
+
+  function handleNope() {
+    setCurrentDog(prevData => ({...prevData, hasBeenSwiped: true}))
   }
 
   return (
     <footer id="footer">
       <div className="nope-icon-container" id="nope-icon-container">
         <img
-          onClick={swiped}
+          onClick={handleNope}
           className="nope-icon"
           id="nope-icon"
           src={NopeIcon}
@@ -19,7 +23,7 @@ export default function Footer({ setCurrentDog }) {
       </div>
       <div className="like-icon-container" id="like-icon-container">
         <img
-          onClick={swiped}
+          onClick={handleLike}
           className="like-icon"
           id="like-icon"
           src={LikeIcon}

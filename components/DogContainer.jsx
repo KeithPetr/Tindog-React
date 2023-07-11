@@ -1,19 +1,19 @@
 /* eslint-disable react/prop-types */
 
-export default function DogContainer({currentDog}) {
-    const {name, age, avatar, bio} = currentDog;
+export default function DogContainer({ currentDog }) {
+  const { name, age, avatar, bio } = currentDog;
 
-    console.log(currentDog)
+  console.log(currentDog);
 
   return (
     <div className="img-container">
       <img
-        className="like-image none"
+        className={`like-image ${currentDog.hasBeenLiked ? "" : "none"}`}
         id="like-image"
         src="images/like-image.png"
       />
       <img
-        className="nope-image none"
+        className={`nope-image ${!currentDog.hasBeenLiked && currentDog.hasBeenSwiped ? "" : "none"}`}
         id="nope-image"
         src="images/nope-image.png"
       />

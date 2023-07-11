@@ -7,6 +7,8 @@ import { useEffect, useState } from "react";
 export default function App() {
   const [currentDogIndex, setCurrentDogIndex] = useState(0)
   const [currentDog, setCurrentDog] = useState(dogs[currentDogIndex])
+  const [isLikeClicked, setIsLikeClicked] = useState(false);
+  const [isNopeClicked, setIsNopeClicked] = useState(false);
 
   useEffect(() => {
     setCurrentDog(dogs[currentDogIndex]);
@@ -28,8 +30,20 @@ export default function App() {
   return (
     <div className="container">
       <Header />
-      <DogContainer currentDog={currentDog} setCurrentDog={setCurrentDog} />
-      <Footer currentDog={currentDog} setCurrentDog={setCurrentDog} />
+      <DogContainer 
+      currentDog={currentDog} 
+      setCurrentDog={setCurrentDog}
+      isLikeClicked={isLikeClicked}
+      isNopeClicked={isNopeClicked}
+       />
+      <Footer 
+      currentDog={currentDog} 
+      setCurrentDog={setCurrentDog}
+      isLikeClicked={isLikeClicked}
+      isNopeClicked={isNopeClicked}
+      setIsLikeClicked={setIsLikeClicked}
+      setIsNopeClicked={setIsNopeClicked}
+       />
     </div>
   );
 }
