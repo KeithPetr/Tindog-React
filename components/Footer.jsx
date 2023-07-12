@@ -2,9 +2,10 @@
 import NopeIcon from "../images/nope-icon.png";
 import LikeIcon from "../images/like-icon.png";
 
-export default function Footer({ setCurrentDog }) {
+export default function Footer({ setCurrentDog, setLikedDogs, currentDog }) {
   function handleLike() {
     setCurrentDog(prevData => ({ ...prevData, hasBeenSwiped: true, hasBeenLiked: true }));
+    setLikedDogs(prevLikedDogs => [...prevLikedDogs, currentDog]);
   }
 
   function handleNope() {

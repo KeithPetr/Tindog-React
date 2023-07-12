@@ -3,8 +3,6 @@
 export default function DogContainer({ currentDog }) {
   const { name, age, avatar, bio } = currentDog;
 
-  console.log(currentDog);
-
   return (
     <div className="img-container">
       <img
