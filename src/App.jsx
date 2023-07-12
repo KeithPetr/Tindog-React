@@ -24,7 +24,7 @@ export default function App() {
         }, 1500);
       } else {
         setTimeout(() => {
-          setAllSwiped(true)
+          setAllSwiped(true);
         }, 1500);
       }
     }
@@ -33,11 +33,11 @@ export default function App() {
   // useEffect(() => {
   //   if(dogs.every((dog) => dog.hasBeenSwiped)) {
   //     setAllSwiped(true)
-  //   } 
+  //   }
   // }, [dogs]);
 
   console.log(allSwiped);
-  console.log(currentDog)
+  console.log(currentDog);
 
   const likedList = likedDogs.map((dog) => {
     return <LikedList key={dog.name} dog={dog} />;
@@ -46,10 +46,10 @@ export default function App() {
   return (
     <div className="container">
       {allSwiped ? (
-        <>
-        <h1>Liked Profiles</h1>
-        {likedList}
-        </>
+        <div className="liked-list">
+          <h1>Liked Profiles</h1>
+          {likedList}
+        </div>
       ) : (
         <>
           <Header />
