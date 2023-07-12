@@ -1,7 +1,6 @@
 import React from "react";
 
-
-export default function LikedList({dog}) {
+export default function LikedList({ dog }) {
   return (
     <div className="liked-list">
       <div className="liked-profile">

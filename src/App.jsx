@@ -46,7 +46,10 @@ export default function App() {
   return (
     <div className="container">
       {allSwiped ? (
-        likedList
+        <>
+        <h1>Liked Profiles</h1>
+        {likedList}
+        </>
       ) : (
         <>
           <Header />
