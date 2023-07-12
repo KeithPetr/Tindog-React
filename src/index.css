@@ -54,6 +54,7 @@ header {
   justify-content: center;
   align-items: center;
   font-size: 0.8rem;
+  padding: .75em;
 }
 
 .profile-icon-container:hover, .chat-icon-container:hover {

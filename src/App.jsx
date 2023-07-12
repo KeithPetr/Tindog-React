@@ -9,7 +9,7 @@ export default function App() {
   const [currentDogIndex, setCurrentDogIndex] = useState(0);
   const [currentDog, setCurrentDog] = useState(dogs[currentDogIndex]);
   const [likedDogs, setLikedDogs] = useState([]);
-  const [allSwiped, setAllSwiped] = useState(false);
+  const [getList, setGetList] = useState(false);
 
   useEffect(() => {
     setCurrentDog(dogs[currentDogIndex]);
@@ -22,22 +22,15 @@ export default function App() {
         setTimeout(() => {
           setCurrentDogIndex(nextDogIndex);
         }, 1500);
-      } else {
-        setTimeout(() => {
-          setAllSwiped(true);
-        }, 1500);
       }
     }
   }, [currentDog]);
 
-  // useEffect(() => {
-  //   if(dogs.every((dog) => dog.hasBeenSwiped)) {
-  //     setAllSwiped(true)
-  //   }
-  // }, [dogs]);
-
-  console.log(allSwiped);
   console.log(currentDog);
+
+  function getLikedList() {
+    setGetList(true);
+  }
 
   const likedList = likedDogs.map((dog) => {
     return <LikedList key={dog.name} dog={dog} />;
@@ -45,14 +38,14 @@ export default function App() {
 
   return (
     <div className="container">
-      {allSwiped ? (
-        <div className="liked-list">
+      <Header getLikedList={getLikedList} />
+      {getList ? (
+        <>
           <h1>Liked Profiles</h1>
           {likedList}
-        </div>
+        </>
       ) : (
         <>
-          <Header />
           <DogContainer currentDog={currentDog} setCurrentDog={setCurrentDog} />
           <Footer
             currentDog={currentDog}
