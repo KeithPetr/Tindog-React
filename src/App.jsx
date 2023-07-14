@@ -38,7 +38,7 @@ export default function App() {
 
   return (
     <div className="container">
-      <Header getLikedList={getLikedList} />
+      <Header getLikedList={getLikedList} likedDogs={likedDogs} />
       {getList ? (
         <>
           <h1>Liked Profiles</h1>
