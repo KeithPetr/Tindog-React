@@ -10,7 +10,7 @@ export default function App() {
   const [currentDog, setCurrentDog] = useState(dogs[currentDogIndex]);
   const [likedDogs, setLikedDogs] = useState([]);
   const [getList, setGetList] = useState(false);
-
+  const [isLastDogProfile, setIsLastDogProfile] = useState(false);
 
   useEffect(() => {
     setCurrentDog(dogs[currentDogIndex]);
@@ -23,6 +23,10 @@ export default function App() {
         setTimeout(() => {
           setCurrentDogIndex(nextDogIndex);
         }, 1500);
+      } else {
+        setTimeout(() => {
+          setIsLastDogProfile(true);
+        }, 1000);
       }
     }
   }, [currentDog]);
@@ -39,7 +43,11 @@ export default function App() {
 
   return (
     <div className="container">
-      <Header getLikedList={getLikedList} setGetList={setGetList} likedDogs={likedDogs} />
+      <Header
+        getLikedList={getLikedList}
+        setGetList={setGetList}
+        likedDogs={likedDogs}
+      />
       {getList ? (
         <div className="liked-list">
           <h1>Liked Profiles</h1>
@@ -47,11 +55,16 @@ export default function App() {
         </div>
       ) : (
         <>
-          <DogContainer currentDog={currentDog} setCurrentDog={setCurrentDog} />
+          <DogContainer
+            currentDog={currentDog}
+            setCurrentDog={setCurrentDog}
+            isLastDogProfile={isLastDogProfile}
+          />
           <Footer
             currentDog={currentDog}
             setCurrentDog={(dog) => setCurrentDog(dog)}
             setLikedDogs={setLikedDogs}
+            isLastDogProfile={isLastDogProfile}
           />
         </>
       )}

@@ -135,6 +135,11 @@ header {
   display: none;
 }
 
+.no-profiles {
+  color: black;
+  height: 425px;
+}
+
 /* ---------------- FOOTER --------------------*/
 
 footer {
@@ -167,6 +172,10 @@ footer > div > img {
 .nope-icon-container:hover {
   cursor: pointer;
   background: #ffe7ef;
+}
+
+.disabled {
+  pointer-events: none;
 }
 
 /* ---------------------LIKED LIST ----------------------- */
