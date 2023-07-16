@@ -11,6 +11,7 @@ export default function App() {
   const [likedDogs, setLikedDogs] = useState([]);
   const [getList, setGetList] = useState(false);
   const [isLastDogProfile, setIsLastDogProfile] = useState(false);
+  const [isWaiting, setIsWaiting] = useState(false);
 
   useEffect(() => {
     setCurrentDog(dogs[currentDogIndex]);
@@ -18,10 +19,12 @@ export default function App() {
 
   useEffect(() => {
     if (currentDog.hasBeenSwiped) {
+      setIsWaiting(true)
       const nextDogIndex = currentDogIndex + 1;
       if (nextDogIndex < dogs.length) {
         setTimeout(() => {
           setCurrentDogIndex(nextDogIndex);
+          setIsWaiting(false)
         }, 1500);
       } else {
         setTimeout(() => {
@@ -65,6 +68,7 @@ export default function App() {
             setCurrentDog={(dog) => setCurrentDog(dog)}
             setLikedDogs={setLikedDogs}
             isLastDogProfile={isLastDogProfile}
+            isWaiting={isWaiting}
           />
         </>
       )}
