@@ -188,6 +188,7 @@ h1 {
 
 .liked-list {
   padding-bottom: .5em;
+  height: 500px;
 }
 
 .liked-profile {

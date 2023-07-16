@@ -19,12 +19,12 @@ export default function App() {
 
   useEffect(() => {
     if (currentDog.hasBeenSwiped) {
-      setIsWaiting(true)
+      setIsWaiting(true);
       const nextDogIndex = currentDogIndex + 1;
       if (nextDogIndex < dogs.length) {
         setTimeout(() => {
           setCurrentDogIndex(nextDogIndex);
-          setIsWaiting(false)
+          setIsWaiting(false);
         }, 1500);
       } else {
         setTimeout(() => {
@@ -51,8 +51,14 @@ export default function App() {
       />
       {getList ? (
         <div className="liked-list">
-          <h1>Liked Profiles</h1>
-          {likedList}
+          {likedDogs.length > 0 ? (
+            <>
+              <h1>Liked Profiles</h1>
+              {likedList}
+            </>
+          ) : (
+            <h1>No Liked Profiles</h1>
+          )}
         </div>
       ) : (
         <>
