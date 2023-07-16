@@ -3,12 +3,13 @@ import ProfileIcon from "../images/profile-icon.png";
 import PawIcon from "../images/paw-icon.png";
 import ChatIcon from "../images/chat-icon.png";
 
-export default function Header({getLikedList, likedDogs, setGetList}) {
+export default function Header({getLikedList, likedDogs, setGetList, viewMessages, setGetMessages}) {
 
   const display = likedDogs.length < 1 ? "none" : "flex"
 
   function removeList() {
     setGetList(false)
+    setGetMessages(false)
   }
 
   return (
@@ -20,7 +21,7 @@ export default function Header({getLikedList, likedDogs, setGetList}) {
       <button onClick={removeList} type="button" className="paw-icon-container">
         <img className="paw-icon" src={PawIcon} />
       </button>
-      <div className="chat-icon-container">
+      <div onClick={viewMessages} className="chat-icon-container">
         <img className="chat-icon" src={ChatIcon} />
       </div>
     </header>

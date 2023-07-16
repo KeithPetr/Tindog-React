@@ -10,7 +10,7 @@ export default function LikedList({ dog }) {
         <p className="liked-name-age">
           {dog.name}, {dog.age}
         </p>
-        <p className="liked-bio">{dog.bio}</p>
+        <p className="liked-message">Send a message</p>
       </div>
     </div>
   );

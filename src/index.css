@@ -187,14 +187,19 @@ h1 {
 }
 
 .liked-list {
-  padding-bottom: .5em;
+  padding: .5em;
   height: 500px;
+  overflow-y: auto;
 }
 
 .liked-profile {
   display: flex;
   align-items: center;
   margin-top: 1em;
+  border: 2px solid rgb(238, 116, 9);
+  padding: .5em .5em;
+  border-radius: 8px;
+  box-shadow: 1px 2px;
 }
 
 .liked-image-container {
@@ -213,11 +218,17 @@ h1 {
 .liked-text {
  margin-left: 2em;
  font-size: 1.2rem;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ padding: 0 1em;
 }
 
 .liked-name-age {
   font-size: 1.5rem;
   font-weight: bold;
+  margin-top: 0;
   margin-bottom: 0.5em;
 }
 
@@ -226,6 +237,21 @@ h1 {
   margin-left: .65em;
 }
 
-.liked-bio {
+.liked-message {
   margin: 0;
+  border: 1px solid orange;
+  border-radius: 10px;
+  padding: .25em .5em;
+}
+
+.liked-message:hover {
+  cursor: pointer;
+  background-color: #fcd180;
+}
+
+/* --------------------- Message Center ----------------------- */
+
+.message-center {
+  height: 500px;
+  overflow-y: auto;
 }

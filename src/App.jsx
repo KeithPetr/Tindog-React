@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import { dogs } from "../src/data.js";
 import { useEffect, useState } from "react";
 import LikedList from "../components/LikedList";
+import Messages from "../components/Messages";
 
 export default function App() {
   const [currentDogIndex, setCurrentDogIndex] = useState(0);
@@ -12,6 +13,7 @@ export default function App() {
   const [getList, setGetList] = useState(false);
   const [isLastDogProfile, setIsLastDogProfile] = useState(false);
   const [isWaiting, setIsWaiting] = useState(false);
+  const [getMessages, setGetMessages] = useState(false);
 
   useEffect(() => {
     setCurrentDog(dogs[currentDogIndex]);
@@ -36,11 +38,17 @@ export default function App() {
 
   function getLikedList() {
     setGetList(true);
+    setGetMessages(false)
   }
 
   const likedList = likedDogs.map((dog) => {
     return <LikedList key={dog.name} dog={dog} />;
   });
+
+  function viewMessages() {
+    setGetMessages(true)
+    setGetList(false)
+  }
 
   return (
     <div className="container">
@@ -48,34 +56,43 @@ export default function App() {
         getLikedList={getLikedList}
         setGetList={setGetList}
         likedDogs={likedDogs}
+        viewMessages={viewMessages}
+        setGetMessages={setGetMessages}
       />
-      {getList ? (
-        <div className="liked-list">
-          {likedDogs.length > 0 ? (
-            <>
-              <h1>Liked Profiles</h1>
-              {likedList}
-            </>
+      {getMessages ? (
+        <Messages />
+        ) : (
+          <>
+          {getList ? (
+            <div className="liked-list">
+              {likedDogs.length > 0 ? (
+                <>
+                  <h1>Liked Profiles</h1>
+                  {likedList}
+                </>
+              ) : (
+                <h1>No Liked Profiles</h1>
+              )}
+            </div>
           ) : (
-            <h1>No Liked Profiles</h1>
+            <>
+              <DogContainer
+                currentDog={currentDog}
+                setCurrentDog={setCurrentDog}
+                isLastDogProfile={isLastDogProfile}
+              />
+              <Footer
+                currentDog={currentDog}
+                setCurrentDog={(dog) => setCurrentDog(dog)}
+                setLikedDogs={setLikedDogs}
+                isLastDogProfile={isLastDogProfile}
+                isWaiting={isWaiting}
+              />
+            </>
           )}
-        </div>
-      ) : (
-        <>
-          <DogContainer
-            currentDog={currentDog}
-            setCurrentDog={setCurrentDog}
-            isLastDogProfile={isLastDogProfile}
-          />
-          <Footer
-            currentDog={currentDog}
-            setCurrentDog={(dog) => setCurrentDog(dog)}
-            setLikedDogs={setLikedDogs}
-            isLastDogProfile={isLastDogProfile}
-            isWaiting={isWaiting}
-          />
-        </>
+          </>
       )}
+      
     </div>
   );
 }
