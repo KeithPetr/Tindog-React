@@ -3,13 +3,15 @@
 export default function DogContainer({ currentDog, isLastDogProfile }) {
   const { name, age, avatar, bio } = currentDog;
   const styles = {
-    color: 'red'
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
   }
 
   return (
-    <div className="img-container" style={isLastDogProfile ? {styles} : null}>
+    <div className="img-container">
       {isLastDogProfile ? (
-          <h1 className="no-profiles">No Profiles Left</h1>
+          <h1 className="no-profiles" style={isLastDogProfile ? styles : null}>No Profiles Left</h1>
       ) : (
         <>
           <img

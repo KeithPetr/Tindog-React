@@ -34,8 +34,6 @@ export default function App() {
     }
   }, [currentDog]);
 
-  console.log(currentDog);
-
   function getLikedList() {
     setGetList(true);
   }
