@@ -11,6 +11,7 @@ export default function App() {
   const [likedDogs, setLikedDogs] = useState([]);
   const [getList, setGetList] = useState(false);
 
+
   useEffect(() => {
     setCurrentDog(dogs[currentDogIndex]);
   }, [currentDogIndex]);
@@ -38,12 +39,12 @@ export default function App() {
 
   return (
     <div className="container">
-      <Header getLikedList={getLikedList} likedDogs={likedDogs} />
+      <Header getLikedList={getLikedList} setGetList={setGetList} likedDogs={likedDogs} />
       {getList ? (
-        <>
+        <div className="liked-list">
           <h1>Liked Profiles</h1>
           {likedList}
-        </>
+        </div>
       ) : (
         <>
           <DogContainer currentDog={currentDog} setCurrentDog={setCurrentDog} />
