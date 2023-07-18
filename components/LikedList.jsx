@@ -1,6 +1,10 @@
 /* eslint-disable react/prop-types */
 
-export default function LikedList({ dog }) {
+export default function LikedList({ dog, navigateToMessages }) {
+  function handleSendMessage() {
+    navigateToMessages(dog);
+  }
+
   return (
     <div className="liked-profile">
       <div className="liked-image-container">
@@ -10,7 +14,9 @@ export default function LikedList({ dog }) {
         <p className="liked-name-age">
           {dog.name}, {dog.age}
         </p>
-        <p className="liked-message">Send a message</p>
+        <p className="liked-message" onClick={handleSendMessage}>
+          Send a message
+        </p>
       </div>
     </div>
   );

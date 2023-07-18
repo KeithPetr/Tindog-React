@@ -14,6 +14,14 @@ export default function App() {
   const [isLastDogProfile, setIsLastDogProfile] = useState(false);
   const [isWaiting, setIsWaiting] = useState(false);
   const [getMessages, setGetMessages] = useState(false);
+  const [messagesArray, setMessagesArray] = useState([]);
+
+  function navigateToMessages(profile) {
+    console.log("profile", profile)
+    setMessagesArray(prevData => [...prevData, profile]);
+    setGetList(false);
+    setGetMessages(true);
+  }
 
   useEffect(() => {
     setCurrentDog(dogs[currentDogIndex]);
@@ -42,7 +50,7 @@ export default function App() {
   }
 
   const likedList = likedDogs.map((dog) => {
-    return <LikedList key={dog.name} dog={dog} />;
+    return <LikedList key={dog.name} dog={dog} navigateToMessages={navigateToMessages} />;
   });
 
   function viewMessages() {
@@ -60,7 +68,7 @@ export default function App() {
         setGetMessages={setGetMessages}
       />
       {getMessages ? (
-        <Messages />
+        <Messages messagesArray={messagesArray}/>
         ) : (
           <>
           {getList ? (
