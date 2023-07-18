@@ -17,8 +17,12 @@ export default function App() {
   const [messagesArray, setMessagesArray] = useState([]);
 
   function navigateToMessages(profile) {
-    console.log("profile", profile)
-    setMessagesArray(prevData => [...prevData, profile]);
+    const profileExists = messagesArray.some(
+      (message) => message.name === profile.name
+    );
+    if (!profileExists) {
+      setMessagesArray((prevData) => [...prevData, profile]);
+    }
     setGetList(false);
     setGetMessages(true);
   }
@@ -46,16 +50,22 @@ export default function App() {
 
   function getLikedList() {
     setGetList(true);
-    setGetMessages(false)
+    setGetMessages(false);
   }
 
   const likedList = likedDogs.map((dog) => {
-    return <LikedList key={dog.name} dog={dog} navigateToMessages={navigateToMessages} />;
+    return (
+      <LikedList
+        key={dog.name}
+        dog={dog}
+        navigateToMessages={navigateToMessages}
+      />
+    );
   });
 
   function viewMessages() {
-    setGetMessages(true)
-    setGetList(false)
+    setGetMessages(true);
+    setGetList(false);
   }
 
   return (
@@ -68,9 +78,9 @@ export default function App() {
         setGetMessages={setGetMessages}
       />
       {getMessages ? (
-        <Messages messagesArray={messagesArray}/>
-        ) : (
-          <>
+        <Messages messagesArray={messagesArray} />
+      ) : (
+        <>
           {getList ? (
             <div className="liked-list">
               {likedDogs.length > 0 ? (
@@ -98,9 +108,8 @@ export default function App() {
               />
             </>
           )}
-          </>
+        </>
       )}
-      
     </div>
   );
 }
