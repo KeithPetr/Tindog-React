@@ -2,11 +2,15 @@
 import Arrow from "../images/arrow.png";
 import MessageArea from "./MessageArea";
 
-export default function Messages({ messagesArray }) {
+export default function Messages({ messagesArray, messageArea, setMessageArea }) {
+
   function handleInputEnter(profileId, event) {
-    const message = event.target.value;
-    console.log(`Entered on Profile ID: ${profileId}`);
-    console.log(`Message: ${message}`);
+    if (event.key === "Enter") {
+      const message = event.target.value;
+      console.log(`Entered on Profile ID: ${profileId}`);
+      console.log(`Message: ${message}`);
+      setMessageArea(true);
+    }
   }
 
   const dogMessage = messagesArray.map((message) => {
@@ -18,9 +22,7 @@ export default function Messages({ messagesArray }) {
         <input
           type="text"
           placeholder="START THE CONVERSATION"
-          onKeyDown={(event) =>
-            event.key === "Enter" && handleInputEnter(name, event)
-          }
+          onKeyDown={(event) => handleInputEnter(name, event)}
         />
         <img className="arrow" src={Arrow} alt="arrow" />
       </div>
@@ -30,7 +32,7 @@ export default function Messages({ messagesArray }) {
   return (
     <div className="message-center">
       <h1>Messages</h1>
-      {dogMessage}
+      {messageArea ? <MessageArea /> : dogMessage}
     </div>
   );
 }

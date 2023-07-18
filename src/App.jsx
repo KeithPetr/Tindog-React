@@ -15,6 +15,7 @@ export default function App() {
   const [isWaiting, setIsWaiting] = useState(false);
   const [getMessages, setGetMessages] = useState(false);
   const [messagesArray, setMessagesArray] = useState([]);
+  const [messageArea, setMessageArea] = useState(false);
 
   function navigateToMessages(profile) {
     const profileExists = messagesArray.some(
@@ -66,6 +67,7 @@ export default function App() {
   function viewMessages() {
     setGetMessages(true);
     setGetList(false);
+    setMessageArea(false);
   }
 
   return (
@@ -78,7 +80,11 @@ export default function App() {
         setGetMessages={setGetMessages}
       />
       {getMessages ? (
-        <Messages messagesArray={messagesArray} />
+        <Messages
+          messagesArray={messagesArray}
+          messageArea={messageArea}
+          setMessageArea={setMessageArea}
+        />
       ) : (
         <>
           {getList ? (
