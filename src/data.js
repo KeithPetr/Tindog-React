@@ -12,6 +12,7 @@ export const dogs = [
       bio: "Art. Literature. Natural wine. Yoga.",
       hasBeenSwiped: false,
       hasBeenLiked: false,
+      messages: [],
     },
     {
       name: "Bella",
@@ -20,6 +21,7 @@ export const dogs = [
       bio: "Life is a garden. Dig it!",
       hasBeenSwiped: false,
       hasBeenLiked: false,
+      messages: [],
     },
     {
       name: "Teddy",
@@ -28,6 +30,7 @@ export const dogs = [
       bio: "I'd rather be at the beach!",
       hasBeenSwiped: false,
       hasBeenLiked: false,
+      messages: [],
     },
     {
       name: "Toga",
@@ -36,6 +39,7 @@ export const dogs = [
       bio: "Eyes are the window to the soul!",
       hasBeenSwiped: false,
       hasBeenLiked: false,
+      messages: [],
     },
     {
       name: "Rusty",
@@ -44,5 +48,6 @@ export const dogs = [
       bio: "Bling bling makes me sing!",
       hasBeenSwiped: false,
       hasBeenLiked: false,
+      messages: [],
     },
   ];

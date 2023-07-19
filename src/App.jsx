@@ -17,6 +17,8 @@ export default function App() {
   const [messagesArray, setMessagesArray] = useState([]);
   const [messageArea, setMessageArea] = useState(false);
 
+
+
   function navigateToMessages(profile) {
     const profileExists = messagesArray.some(
       (message) => message.name === profile.name
@@ -84,6 +86,7 @@ export default function App() {
           messagesArray={messagesArray}
           messageArea={messageArea}
           setMessageArea={setMessageArea}
+          setMessagesArray={setMessagesArray}
         />
       ) : (
         <>

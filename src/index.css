@@ -25,11 +25,11 @@ header {
   padding: 1em 0.5em;
 }
 
-.profile-icon-container, 
+.profile-icon-container,
 .chat-icon-container {
   width: 15%;
   margin: 0.5em;
-  padding: .5em;
+  padding: 0.5em;
 }
 
 .chat-icon,
@@ -54,10 +54,11 @@ header {
   justify-content: center;
   align-items: center;
   font-size: 0.8rem;
-  padding: .75em;
+  padding: 0.75em;
 }
 
-.profile-icon-container:hover, .chat-icon-container:hover {
+.profile-icon-container:hover,
+.chat-icon-container:hover {
   box-shadow: 0px 5px 20px #6f837d;
   border-radius: 50%;
   cursor: pointer;
@@ -80,7 +81,7 @@ header {
 
 .paw-icon {
   width: 30%;
-  padding: .8em 0;
+  padding: 0.8em 0;
 }
 
 /* ---------------- MAIN CONTENT ------------------------- */
@@ -187,7 +188,7 @@ h1 {
 }
 
 .liked-list {
-  padding: .5em;
+  padding: 0.5em;
   height: 500px;
   overflow-y: auto;
 }
@@ -197,7 +198,7 @@ h1 {
   align-items: center;
   margin-top: 1em;
   border: 2px solid rgb(238, 116, 9);
-  padding: .5em .5em;
+  padding: 0.5em 0.5em;
   border-radius: 8px;
   box-shadow: 1px 2px;
 }
@@ -216,13 +217,13 @@ h1 {
 }
 
 .liked-text {
- margin-left: 2em;
- font-size: 1.2rem;
- display: flex;
- flex-direction: column;
- align-items: center;
- justify-content: center;
- padding: 0 1em;
+  margin-left: 2em;
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1em;
 }
 
 .liked-name-age {
@@ -234,14 +235,14 @@ h1 {
 
 .no-likes {
   width: 95%;
-  margin-left: .65em;
+  margin-left: 0.65em;
 }
 
 .liked-message {
   margin: 0;
   border: 1px solid orange;
   border-radius: 10px;
-  padding: .25em .5em;
+  padding: 0.25em 0.5em;
 }
 
 .liked-message:hover {
@@ -262,7 +263,7 @@ h1 {
   margin-bottom: 1em;
 }
 
-.message-bubble {
+.message-list {
   display: flex;
   justify-content: space-evenly;
   margin-bottom: 1em;
@@ -275,7 +276,7 @@ h1 {
   border-radius: 50%;
 }
 
-.message-bubble > input {
+.message-list > input {
   width: 70%;
   height: 40px;
   display: flex;
@@ -287,6 +288,12 @@ h1 {
   height: 30px;
   display: flex;
   align-self: center;
-  margin: 0 .25em;
+  margin: 0 0.25em;
   cursor: pointer;
+}
+
+.message-area {
+  border: 1px solid black;
+  height: 100%;
+  
 }
