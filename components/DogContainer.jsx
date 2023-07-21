@@ -1,4 +1,6 @@
 /* eslint-disable react/prop-types */
+import LikeImage from "../images/LikeImage.png";
+import NopeImage from "../images/NopeImage.png";
 
 export default function DogContainer({ currentDog, isLastDogProfile }) {
   const { name, age, avatar, bio } = currentDog;
@@ -17,14 +19,14 @@ export default function DogContainer({ currentDog, isLastDogProfile }) {
           <img
             className={`like-image ${currentDog.hasBeenLiked ? "" : "none"}`}
             id="like-image"
-            src="images/like-image.png"
+            src={LikeImage}
           />
           <img
             className={`nope-image ${
               !currentDog.hasBeenLiked && currentDog.hasBeenSwiped ? "" : "none"
             }`}
             id="nope-image"
-            src="images/nope-image.png"
+            src={NopeImage}
           />
           <img className="dog-img" src={`${avatar}`} alt="current dog image" />
           <p className="name-age">
