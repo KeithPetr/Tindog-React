@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
-import LikeImage from "../images/LikeImage.png";
-import NopeImage from "../images/NopeImage.png";
+import LikeImage from "../images/like-image.png";
+import NopeImage from "../images/nope-image.png";
 
 export default function DogContainer({ currentDog, isLastDogProfile }) {
   const { name, age, avatar, bio } = currentDog;
