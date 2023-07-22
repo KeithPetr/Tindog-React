@@ -62,6 +62,8 @@ export default function App() {
         key={dog.name}
         dog={dog}
         navigateToMessages={navigateToMessages}
+        setMessageArea={setMessageArea}
+        setMessagesArray={setMessagesArray}
       />
     );
   });

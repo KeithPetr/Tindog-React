@@ -7,17 +7,18 @@ export default function Messages({
   messagesArray,
   messageArea,
   setMessageArea,
-  setMessagesArray
+  setMessagesArray,
 }) {
-  const [inputText, setInputText] = useState("");
+  const [inputTexts, setInputTexts] = useState({}); // Object to store input texts for each dog
   const [selectedDogMessage, setSelectedDogMessage] = useState(null);
 
   console.log(messagesArray);
+  console.log(inputTexts);
+  console.log("selectedDogMessage:", selectedDogMessage);
 
   function handleInputEnter(dog, event) {
     if (event.key === "Enter") {
       const newMessage = event.target.value;
-      setInputText("");
 
       // Create a new message object with the updated messages array
       const updatedMessage = {
@@ -40,33 +41,47 @@ export default function Messages({
       }
 
       setSelectedDogMessage(updatedMessage); // Set the selected dog's message
-      setMessageArea(true)
+      setInputTexts({ ...inputTexts, [dog.name]: "" }); // Clear input text for the current dog
+      setMessageArea(true);
     }
   }
 
-  const dogMessage = messagesArray.map((dog) => {
-    const { name, avatar } = dog;
+  function handleInputChange(dog, event) {
+    setInputTexts({ ...inputTexts, [dog.name]: event.target.value }); // Update input text for the current dog
+  }
 
+  const dogMessage = messagesArray.map((dog) => {
+    const { name, avatar, messages } = dog;
+    const hasMessages = messages.length > 0;
+    const recentMessage = hasMessages ? messages[messages.length - 1] : null;
+  
     return (
       <div className="message-list" key={name}>
         <img className="dog-message-pic" src={avatar} alt={name} />
-        <input
-          type="text"
-          placeholder="START THE CONVERSATION"
-          onKeyDown={(event) => handleInputEnter(dog, event)}
-          value={inputText}
-          onChange={(event) => setInputText(event.target.value)}
-        />
+        {hasMessages ? (
+          <div className="message-content">
+            <p>{recentMessage}</p>
+          </div>
+        ) : (
+          <input
+            type="text"
+            placeholder="START THE CONVERSATION"
+            onKeyDown={(event) => handleInputEnter(dog, event)}
+            value={inputTexts[dog.name] || ""} // Use the input text for the current dog
+            onChange={(event) => handleInputChange(dog, event)} // Handle input change for the current dog
+          />
+        )}
         <img className="arrow" src={Arrow} alt="arrow" />
       </div>
     );
   });
+  
 
   return (
     <div className="message-center">
       <h1>Messages</h1>
       {messageArea && selectedDogMessage ? (
-        <MessageArea messages={selectedDogMessage.messages} />
+        <MessageArea selectedDogMessage={selectedDogMessage} setSelectedDogMessage={setSelectedDogMessage} />
       ) : (
         dogMessage
       )}
