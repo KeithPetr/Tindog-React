@@ -50,6 +50,11 @@ export default function Messages({
     setInputTexts({ ...inputTexts, [dog.name]: event.target.value }); // Update input text for the current dog
   }
 
+  function handleViewMessages(selectedDogMessage) {
+    setSelectedDogMessage(selectedDogMessage); // Set the selected dog's message
+    setMessageArea(true); // Show the MessageArea
+  }
+
   const dogMessage = messagesArray.map((dog) => {
     const { name, avatar, messages } = dog;
     const hasMessages = messages.length > 0;
@@ -59,8 +64,8 @@ export default function Messages({
       <div className="message-list" key={name}>
         <img className="dog-message-pic" src={avatar} alt={name} />
         {hasMessages ? (
-          <div className="message-content">
-            <p>{recentMessage}</p>
+          <div className="recent-message">
+            <p onClick={() => handleViewMessages(dog)}>{recentMessage}</p>
           </div>
         ) : (
           <input
@@ -81,7 +86,10 @@ export default function Messages({
     <div className="message-center">
       <h1>Messages</h1>
       {messageArea && selectedDogMessage ? (
-        <MessageArea selectedDogMessage={selectedDogMessage} setSelectedDogMessage={setSelectedDogMessage} />
+        <MessageArea selectedDogMessage={selectedDogMessage} 
+        setSelectedDogMessage={setSelectedDogMessage} 
+        setMessagesArray={setMessagesArray}
+        />
       ) : (
         dogMessage
       )}

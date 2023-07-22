@@ -5,6 +5,7 @@ import { useState } from "react";
 export default function MessageArea({
   selectedDogMessage,
   setSelectedDogMessage,
+  setMessagesArray
 }) {
   const { messages, name, avatar } = selectedDogMessage;
   const [inputText, setInputText] = useState(""); // State to store input text
@@ -22,6 +23,19 @@ export default function MessageArea({
 
       // Update the state with the new message
       setSelectedDogMessage(updatedSelectedDogMessage);
+
+      // Update the messagesArray with the updated message
+      setMessagesArray((prevMessagesArray) => {
+        const messageIndex = prevMessagesArray.findIndex(
+          (msg) => msg.name === name
+        );
+        if (messageIndex !== -1) {
+          const updatedMessagesArray = [...prevMessagesArray];
+          updatedMessagesArray[messageIndex] = updatedSelectedDogMessage;
+          return updatedMessagesArray;
+        }
+        return prevMessagesArray;
+      });
 
       // Clear the input text
       setInputText("");

@@ -303,6 +303,13 @@ h1 {
   cursor: pointer;
 }
 
+.recent-message {
+  cursor: pointer;
+  width: 70%;
+  border: 1px solid black;
+  
+}
+
 .message-area {
   position: relative; /* Set the position to relative for the message area */
   flex: 1;
