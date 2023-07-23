@@ -64,8 +64,8 @@ export default function Messages({
       <div className="message-list" key={name}>
         <img className="dog-message-pic" src={avatar} alt={name} />
         {hasMessages ? (
-          <div className="recent-message">
-            <p onClick={() => handleViewMessages(dog)}>{recentMessage}</p>
+          <div className="recent-message" onClick={() => handleViewMessages(dog)}>
+            <p>{recentMessage}</p>
           </div>
         ) : (
           <input
