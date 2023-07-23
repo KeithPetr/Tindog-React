@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 export default function MessageArea({
   selectedDogMessage,
@@ -9,6 +9,8 @@ export default function MessageArea({
 }) {
   const { messages, name, avatar } = selectedDogMessage;
   const [inputText, setInputText] = useState(""); // State to store input text
+  const lastChatBubbleRef = useRef(null); // Ref to hold the last chat bubble element
+
 
   const handleInputSubmit = (event) => {
     if (event.key === "Enter" && inputText.trim() !== "") {
@@ -41,6 +43,14 @@ export default function MessageArea({
       setInputText("");
     }
   };
+  console.log(lastChatBubbleRef)
+
+  useEffect(() => {
+    // Scroll to the last chat bubble after rendering
+    if (lastChatBubbleRef.current) {
+      lastChatBubbleRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [messages]);
 
   return (
     <div className="message-area">
@@ -50,7 +60,11 @@ export default function MessageArea({
       </div>
       <div className="chat-bubbles-container">
         {messages.map((message, index) => (
-          <p className="your-message-bubble" key={index}>
+          <p 
+          className="your-message-bubble" 
+          key={index}
+          ref={index === messages.length - 1 ? lastChatBubbleRef : null}
+          >
             {message}
           </p>
         ))}
