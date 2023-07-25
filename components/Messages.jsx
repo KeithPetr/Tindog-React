@@ -12,7 +12,7 @@ export default function Messages({
   const [inputTexts, setInputTexts] = useState({}); // Object to store input texts for each dog
   const [selectedDogMessage, setSelectedDogMessage] = useState(null);
 
-  console.log(messagesArray);
+  console.log("Messages Array", messagesArray);
   console.log(inputTexts);
   console.log("selectedDogMessage:", selectedDogMessage);
 

@@ -7,11 +7,28 @@ body {
   background: lightblue;
 }
 
+.app-container {
+  display: flex;
+}
+
 .container {
   margin: 0 auto;
   background: white;
   min-width: 360px;
   max-width:360px;
+  border: 1px solid red;
+}
+
+.response {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.response > input {
+  width: 90%;
+  padding: 8px;
 }
 
 /* -------------------- HEADER ------------------------ */
@@ -326,7 +343,7 @@ h1 {
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding-bottom: 10px;
+  padding-bottom: 1px;
 }
 
 .chat-bubbles-container {
@@ -340,7 +357,7 @@ h1 {
   left: 0;
   width: 100%;
   background-color: #ffffff; /* Set a background color to make it stand out from the chat bubbles */
-  padding: 10px;
+  padding: 5px;;
 }
 
 .your-message-bubble {
@@ -356,8 +373,6 @@ h1 {
 }
 
 .your-message-input {
-  bottom: 10px; /* Adjust the bottom value to move the input up */
-  left: 10px; /* Adjust the left value to control the horizontal position */
-  width: 80%;
+  width: 95%;
   padding: .75em .75em;
 }

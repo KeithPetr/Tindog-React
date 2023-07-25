@@ -17,8 +17,6 @@ export default function App() {
   const [messagesArray, setMessagesArray] = useState([]);
   const [messageArea, setMessageArea] = useState(false);
 
-
-
   function navigateToMessages(profile) {
     const profileExists = messagesArray.some(
       (message) => message.name === profile.name
@@ -75,52 +73,58 @@ export default function App() {
   }
 
   return (
-    <div className="container">
-      <Header
-        getLikedList={getLikedList}
-        setGetList={setGetList}
-        likedDogs={likedDogs}
-        viewMessages={viewMessages}
-        setGetMessages={setGetMessages}
-      />
-      {getMessages ? (
-        <Messages
-          messagesArray={messagesArray}
-          messageArea={messageArea}
-          setMessageArea={setMessageArea}
-          setMessagesArray={setMessagesArray}
+    <div className="app-container">
+      <div className="container">
+        <Header
+          getLikedList={getLikedList}
+          setGetList={setGetList}
+          likedDogs={likedDogs}
+          viewMessages={viewMessages}
+          setGetMessages={setGetMessages}
         />
-      ) : (
-        <>
-          {getList ? (
-            <div className="liked-list">
-              {likedDogs.length > 0 ? (
-                <>
-                  <h1>Liked Profiles</h1>
-                  {likedList}
-                </>
-              ) : (
-                <h1>No Liked Profiles</h1>
-              )}
-            </div>
-          ) : (
-            <>
-              <DogContainer
-                currentDog={currentDog}
-                setCurrentDog={setCurrentDog}
-                isLastDogProfile={isLastDogProfile}
-              />
-              <Footer
-                currentDog={currentDog}
-                setCurrentDog={(dog) => setCurrentDog(dog)}
-                setLikedDogs={setLikedDogs}
-                isLastDogProfile={isLastDogProfile}
-                isWaiting={isWaiting}
-              />
-            </>
-          )}
-        </>
-      )}
+        {getMessages ? (
+          <Messages
+            messagesArray={messagesArray}
+            messageArea={messageArea}
+            setMessageArea={setMessageArea}
+            setMessagesArray={setMessagesArray}
+          />
+        ) : (
+          <>
+            {getList ? (
+              <div className="liked-list">
+                {likedDogs.length > 0 ? (
+                  <>
+                    <h1>Liked Profiles</h1>
+                    {likedList}
+                  </>
+                ) : (
+                  <h1>No Liked Profiles</h1>
+                )}
+              </div>
+            ) : (
+              <>
+                <DogContainer
+                  currentDog={currentDog}
+                  setCurrentDog={setCurrentDog}
+                  isLastDogProfile={isLastDogProfile}
+                />
+                <Footer
+                  currentDog={currentDog}
+                  setCurrentDog={(dog) => setCurrentDog(dog)}
+                  setLikedDogs={setLikedDogs}
+                  isLastDogProfile={isLastDogProfile}
+                  isWaiting={isWaiting}
+                />
+              </>
+            )}
+          </>
+        )}
+      </div>
+      <div className="container response">
+        <h1>Response</h1>
+        <input type="text" placeholder="send a message"/>
+      </div>
     </div>
   );
 }
