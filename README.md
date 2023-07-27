@@ -4,7 +4,8 @@
 The project re-creates the Tinder app. It allows a user to like or pass on different profiles.
 When a profile is liked, the user can then send a message to that profile. The app keeps track
 of sent messages and allows the user to navigate between liked profiles, un-selected profiles
-and messages.
+and messages. In the header, the user can click on the profile icon to see liked profiles, the
+paw icons to see un-selected profiles, and the chat icon to see currently sent messages.
 
 ## Table of Contents
 - [Programming](#programming-languages-used)
