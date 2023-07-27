@@ -11,6 +11,7 @@ and messages.
 - [Screenshots](#screenshots)
 - [Links](#links)
 - [Project Requirements](#project-requirements)
+- [Future Goals](#future-goals)
 - [Resources](#resources)
 
 ## Programming Languages Used
@@ -28,16 +29,22 @@ and messages.
  [Live Demo](https://tindog-react-site.netlify.app/)
 
 ## Project Requirements
-The Salesboard project required us to follow a Figma design
-and build the layout using CSS and HTML from scratch.
-We were required to use JavaScript functions, arrays, loops
-and objects to create the functionality.
+The Tindog app orginally was designed to use Javascript classes to create the like and nope
+tags on each profile and track which profiles had been liked. I created this project using
+the React library to re-create that same functionality while also adding on top of it. I was 
+able to add components and states that allowed for the user to navigate through liked profiles, 
+un-selected profiles, and messages that have currently been sent by the user.
 
 ## This project includes the following 'stretch goals':
-  - Toggle for light and dark modes
-  - Storing the data in the browser
-  - Create a button to reset the data
+  - Toggle between liked profiles, profiles, and current messages
+  - Displaying the most recent message if available
+  - Determining which profile inputs have already been selected
+  - Keeping a history of sent messages
+
+## Future Goals
+  - Add ability to respond to messages
+  - On page refresh, keep history of chats and liked profiles
 
 ### Resources:
-  - [Figma Design Screenshot](https://www.figma.com/file/7sKjOMc3s9LQ2rAnnSbI4V/Salesboard?node-id=0%3A1&t=YZrlLoyluImrFuCw-0)
+  - [Figma Design Screenshot](https://www.figma.com/file/LdlksbT0QYLpRlHrOlKDuc/Tinder-for-Dogs?type=design&node-id=0-1&mode=design)
   - [Scrimba](https://scrimba.com/)
