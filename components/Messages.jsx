@@ -2,11 +2,6 @@
 import { useState } from "react";
 import Arrow from "../images/arrow.png";
 import MessageArea from "./MessageArea";
-import { getDatabase, ref, push } from "firebase/database";
-import appSettings from "../src/firebaseConfig"; // Import your Firebase configuration object
-
-const database = getDatabase(appSettings);
-const messagesDB = ref(database, "messages");
 
 export default function Messages({
   messagesArray,
@@ -17,14 +12,9 @@ export default function Messages({
   const [inputTexts, setInputTexts] = useState({}); // Object to store input texts for each dog
   const [selectedDogMessage, setSelectedDogMessage] = useState(null);
 
-  console.log("Messages Array", messagesArray);
-  console.log(inputTexts);
-  console.log("selectedDogMessage:", selectedDogMessage);
-
   function handleInputEnter(dog, event) {
     if (event.key === "Enter") {
       const newMessage = event.target.value;
-      push(messagesDB, { [dog.name]: [newMessage] });
       // Create a new message object with the updated messages array
       const updatedMessage = {
         ...dog,

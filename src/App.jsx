@@ -17,6 +17,8 @@ export default function App() {
   const [messagesArray, setMessagesArray] = useState([]);
   const [messageArea, setMessageArea] = useState(false);
 
+  console.log(dogs)
+
   function navigateToMessages(profile) {
     const profileExists = messagesArray.some(
       (message) => message.name === profile.name
@@ -121,10 +123,10 @@ export default function App() {
           </>
         )}
       </div>
-      <div className="container response">
+      {/* <div className="container response">
         <h1>Response</h1>
         <input type="text" placeholder="send a message"/>
-      </div>
+      </div> */}
     </div>
   );
 }

@@ -1,41 +1,25 @@
 /* eslint-disable react/prop-types */
-
 import { useState, useRef, useEffect } from "react";
-import { getDatabase, ref, push, onValue } from "firebase/database";
-import appSettings from "../src/firebaseConfig"; // Import your Firebase configuration object
-
-
-const database = getDatabase(appSettings)
-const messagesDB = ref(database, "messages")
 
 export default function MessageArea({
   selectedDogMessage,
   setSelectedDogMessage,
-  setMessagesArray
+  setMessagesArray,
 }) {
-  
-  onValue(messagesDB, function(snapshot) {
-    console.log(Object.values(snapshot.val()))
-  })
-
   const { messages, name, avatar } = selectedDogMessage;
   const [inputText, setInputText] = useState(""); // State to store input text
   const lastChatBubbleRef = useRef(null); // Ref to hold the last chat bubble element
 
-console.log("MessageArea:",selectedDogMessage)
-
   const handleInputSubmit = (event) => {
     if (event.key === "Enter" && inputText.trim() !== "") {
       // Check if the 'Enter' key is pressed and the input is not empty
-      const newMessage = inputText.trim(); // Remove leading and trailing whitespaces
+      const newMessage = inputText.trim();
 
       // Create a new object with the updated 'messages' array
       const updatedSelectedDogMessage = {
         ...selectedDogMessage,
         messages: [...messages, newMessage],
       };
-
-      push(messagesDB, updatedSelectedDogMessage)
 
       // Update the state with the new message
       setSelectedDogMessage(updatedSelectedDogMessage);
@@ -57,7 +41,6 @@ console.log("MessageArea:",selectedDogMessage)
       setInputText("");
     }
   };
-  console.log(lastChatBubbleRef)
 
   useEffect(() => {
     // Scroll to the last chat bubble after rendering
