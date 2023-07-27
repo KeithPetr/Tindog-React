@@ -21,9 +21,11 @@ and messages.
 
 ## Screenshots
 <img src="https://github.com/KeithPetr/Tindog-React/assets/91621041/ce69732c-8dff-47a0-9945-3290e0aa9997" height="500" width="300" />
+<img src="https://github.com/KeithPetr/Tindog-React/assets/91621041/50093e62-25db-409f-89d0-098b15b205d7" height="500" width="300" />
+<img src="https://github.com/KeithPetr/Tindog-React/assets/91621041/28c117cd-53ce-4cbd-9962-4bb5c98eb05b" height="500" width="300" />
 
 ## Links
- [Live Demo](https://profound-pixie-49d3cc.netlify.app/)
+ [Live Demo](https://tindog-react-site.netlify.app/)
 
 ## Project Requirements
 The Salesboard project required us to follow a Figma design
