@@ -4,7 +4,7 @@ import Teddy from "../images/dog-teddy.jpg";
 import Toga from "../images/dog-toga.jpg";
 import Rusty from "../images/dog-rusty.jpg";
 
-let dogsArray = [
+const dogsArray = [
   {
     name: "Rex",
     avatar: Rex,
@@ -51,9 +51,5 @@ let dogsArray = [
     messages: [],
   },
 ];
-
-export function updateDogs(newDogs) {
-  dogsArray = newDogs;
-}
 
 export { dogsArray as dogs };
